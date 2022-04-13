@@ -7,8 +7,8 @@ export function findAvailability (schedule = []) {
       return schedule;
     }
 
-    if (begin !== '07:00') {
-      availability.push(['07:00', begin]);
+    if (begin !== '06:00') {
+      availability.push(['06:00', begin]);
     }
 
     schedule.forEach((curr, i) => {
@@ -20,8 +20,8 @@ export function findAvailability (schedule = []) {
       }
     });
 
-    if (end !== '23:59') {
-      availability.push([end, '23:59']);
+    if (end !== '20:00') {
+      availability.push([end, '20:00']);
     }
 
     return availability;
@@ -62,7 +62,7 @@ export function removeConflicts (schedules) {
     const open = findAvailability(schedule);
 
     return intersectSchedules(openSlots, open);
-}, [['07:00', '23:59']]);
+}, [['06:00', '20:00']]);
 
   return res;
 }

@@ -4,14 +4,18 @@ const webpack = require('webpack');
 module.exports = {
     entry: path.join(__dirname, "js", "index.js"),
     module: {
-        rules: [
+		rules: [
           {
             test: /\.(js|jsx)$/,
             exclude: /node_modules/,
             use: {
               loader: "babel-loader"
             }
-          }
+		},
+		{
+			   test: /\.(css)$/,
+			   use: ['style-loader','css-loader']
+		  }
         ]
     },
     resolve: {
